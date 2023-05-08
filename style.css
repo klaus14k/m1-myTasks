@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  margin: 20px auto;
+  width: 67%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1{
+  text-transform: uppercase;
+  font-family: 'Titillium Web', sans-serif;
+  color: rgb(0, 98, 255);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+header input{
+  background: rgb(235, 235, 235);
+  border: none;
+  width: 20%;
+  padding: 12px;
+  border-radius: 4px;
+  color:rgb(134, 134, 134)
+}
+
+main{
+  box-shadow: inset 0px 6px 6px 0px rgba(0,0,0,0.30);
+  height: calc(100vh - 47px);
+  background: #e2e2e2;
+  padding-top: 12px;
+}
+
+section{
+  margin: 20px auto;
+  width: 60%;
+  background: white;
+  border-radius: 8px;
+  padding: 20px 40px;
+}
+
+section h2{
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.form_section form div{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form_section form input, .form_section form select{
+  width: 45%;
+  background: rgb(235, 235, 235);
+  border: none;
+  padding: 12px;
+  border-radius: 4px;
+  color:rgb(134, 134, 134)
+}
+
+.form_section form button{
+  width: 100%;
+  background: rgb(0, 98, 255);
+  border: none;
+  padding: 18px 0px;
+  border-radius: 4px;
+  color:rgb(255,255,255)
+}
+
+.tasks li div span{
+  display: block;
+  height: 8px;
+  width: 8px;
+  border-radius: 100%;
+  background: black;
+}
+
+.tasks li div .span-urgent{
+  background: red;
+}
+.tasks li div .span-priority{
+  background: rgb(255, 174, 0);
+}
+.tasks li div .span-normal{
+  background: green;
+}
+
+.tasks li{
+  display: flex;
+  justify-content: space-between;
+  background: rgb(233, 232, 232);
+  border-radius: 8px;
+  padding: 20px 3%;
+  margin: 10px 0;
+}
+
+.tasks li div{
+  display: flex;
+  align-items: center;
+}
+
+.tasks li div span{
+  margin: 0 8px;
+}
+
+.tasks li button{
+  border: none;
+  background:rgb(220, 220, 220);
+  color:rgb(150, 150, 150);
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+
+button{
+  cursor: pointer;
+}

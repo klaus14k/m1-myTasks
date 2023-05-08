@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./style.css" />
+
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>My Tasks</h1>
+      <input type="search" placeholder="Pesquisar tarefa" />
+    </header>
+    <main>
+      <section class="form_section">
+        <h2>Inserir tarefa</h2>
+        <form>
+          <div>
+            <input
+              id="input_title"
+              type="text"
+              placeholder="Digitar titulo da tarefa"
+            />
+            <select id="input_priority">
+              <option value="Urgente">Urgente</option>
+              <option value="Prioritário">Prioritário</option>
+              <option value="Normal">Normal</option>
+            </select>
+          </div>
+          <button id="btnSubmit">Adicionar Tarefa na Lista</button>
+        </form>
+      </section>
+
+      <section class="task_section">
+        <h2>Tarefas</h2>
+        <ul class="tasks"></ul>
+      </section>
+    </main>
+  </body>
+</html>
