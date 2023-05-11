@@ -27,6 +27,26 @@ function createCard(taskInfo) {
   div.appendChild(span);
   div.appendChild(p);
 
+  // Adicionando classe aos spans
+  function addingSpanClass (){
+    if (taskInfo.tipo === 'Urgente'){
+      span.classList.remove('span-normal')
+      span.classList.remove('span-priority')
+      span.classList.add('span-urgent')
+    }
+    else if (taskInfo.tipo === 'Prioritário'){
+      span.classList.remove('span-normal')
+      span.classList.remove('span-urgent')
+      span.classList.add('span-priority')
+    }
+    else if (taskInfo.tipo === 'Normal'){
+      span.classList.remove('span-priority')
+      span.classList.remove('span-urgent')
+      span.classList.add('span-normal')
+    }
+  }
+  addingSpanClass()
+
   // Criando botão para deletar tarefa
   const button = document.createElement("button");
 
@@ -54,3 +74,19 @@ function renderElements(taskList) {
   }
 }
 renderElements(tasks);
+
+const AddTaskButton = document.getElementById('btnSubmit')
+const inputTitle = document.getElementById('input_title')
+const inputPriority = document.getElementById('input_priority')
+
+AddTaskButton.addEventListener('click',function(e){
+  e.preventDefault()
+  
+  let newTaskObj = {}
+  newTaskObj.titulo = inputTitle.value
+  newTaskObj.tipo = inputPriority.value
+  inputTitle.value = ""
+  
+  tasks.push(newTaskObj)
+  renderElements(tasks)
+})
