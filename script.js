@@ -11,82 +11,74 @@ const tasks = [
     titulo: "Beber água",
     tipo: "Normal",
   },
-];
+]
 
 function createCard(taskInfo) {
-  // Criando elementos necessários
-  const li = document.createElement("li");
-  const div = document.createElement("div");
-  const span = document.createElement("span");
-  const p = document.createElement("p");
+  const taskCard = document.createElement("li")
+  const taskCardContent = document.createElement("div")
+  const taskCardMarker = document.createElement("span")
+  const taskCardTitle = document.createElement("p")
 
-  // Adicionando o titulo da tarefa como texto do paragrafo
-  p.innerText = taskInfo.titulo;
+  taskCardTitle.innerText = taskInfo.titulo;
 
-  // Adicionando span e paragrafo a div
-  div.appendChild(span);
-  div.appendChild(p);
+  taskCardContent.appendChild(taskCardMarker)
+  taskCardContent.appendChild(taskCardTitle)
 
-  // Adicionando classe aos spans
-    if (taskInfo.tipo === 'Urgente'){
-      span.classList.add('span-urgent')
-    }
-    else if (taskInfo.tipo === 'Prioritário'){
-      span.classList.add('span-priority')
-    }
-    else if (taskInfo.tipo === 'Normal'){
-      span.classList.add('span-normal')
-    }
+  if (taskInfo.tipo === 'Urgente'){
+    taskCardMarker.classList.add('span-urgent')
+  }
+  else if (taskInfo.tipo === 'Prioritário'){
+    taskCardMarker.classList.add('span-priority')
+  }
+  else if (taskInfo.tipo === 'Normal'){
+    taskCardMarker.classList.add('span-normal')
+  }
 
-  // Criando botão para deletar tarefa
-  const button = document.createElement("button");
+  const deleteButton = document.createElement("button")
 
-  // Adicionando icone ao botão
-  button.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
+  deleteButton.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>'
 
-  // se o indice do botao que eu cliquei for igual ao o meu item atual eu removo o atual com splice
-  button.addEventListener('click', function(){
+  deleteButton.addEventListener('click', function(){
     const currentTask = tasks.indexOf(taskInfo)
     tasks.splice(currentTask, 1)      
     renderElements(tasks)
   })
 
-  /// Adicionando a div e o botão de deletar ao list item
-  li.appendChild(div);
-  li.appendChild(button);
+  taskCard.appendChild(taskCardContent)
+  taskCard.appendChild(deleteButton)
 
-  return li;
+  return taskCard
 }
 
 function renderElements(taskList) {
-  const htmlList = document.querySelector(".tasks");
-  htmlList.innerHTML = "";
-
-  // Ajustar a lógica
-
+  const htmlList = document.querySelector(".tasks")
+  htmlList.innerHTML = ""
+  
   for (let i = 0; i < taskList.length; i++){
     const currentTask = taskList[i]
-
     let card = createCard(currentTask)
     htmlList.appendChild(card)
   }
 }
-renderElements(tasks);
+renderElements(tasks)
 
-const AddTaskButton = document.getElementById('btnSubmit')
-const inputTitle = document.getElementById('input_title')
-const inputPriority = document.getElementById('input_priority')
+function renderNewElement(){
+  const AddTaskButton = document.getElementById('btnSubmit')
+  const taskTitle = document.getElementById('input_title')
+  const taskPriority = document.getElementById('input_priority')
 
-AddTaskButton.addEventListener('click',function(e){
-  if(inputTitle.value != ''){
+  AddTaskButton.addEventListener('click',function(e){
     e.preventDefault()
+    
+    if(taskTitle.value != ''){
+      let newTaskObj = {}
+      newTaskObj.titulo = taskTitle.value
+      newTaskObj.tipo = taskPriority.value
+      taskTitle.value = ""
 
-    let newTaskObj = {}
-    newTaskObj.titulo = inputTitle.value
-    newTaskObj.tipo = inputPriority.value
-    inputTitle.value = ""
-
-    tasks.push(newTaskObj)
-    renderElements(tasks)
-  }
-})
+      tasks.push(newTaskObj)
+      renderElements(tasks)
+    }
+  })
+}
+renderNewElement()
