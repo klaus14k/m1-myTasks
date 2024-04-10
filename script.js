@@ -19,26 +19,26 @@ function createCard(taskInfo) {
   const taskCardMarker = document.createElement("span")
   const taskCardTitle = document.createElement("p")
 
-  taskCardTitle.innerText = taskInfo.titulo;
+  taskCardTitle.innerText = taskInfo.titulo
 
   taskCardContent.appendChild(taskCardMarker)
   taskCardContent.appendChild(taskCardTitle)
 
-  if (taskInfo.tipo === 'Urgente'){
-    taskCardMarker.classList.add('span-urgent')
+  if (taskInfo.tipo === "Urgente"){
+    taskCardMarker.classList.add("span-urgent")
   }
-  else if (taskInfo.tipo === 'Prioritário'){
-    taskCardMarker.classList.add('span-priority')
+  else if (taskInfo.tipo === "Prioritário"){
+    taskCardMarker.classList.add("span-priority")
   }
-  else if (taskInfo.tipo === 'Normal'){
-    taskCardMarker.classList.add('span-normal')
+  else if (taskInfo.tipo === "Normal"){
+    taskCardMarker.classList.add("span-normal")
   }
 
   const deleteButton = document.createElement("button")
 
   deleteButton.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>'
 
-  deleteButton.addEventListener('click', function(){
+  deleteButton.addEventListener("click", function(){
     const currentTask = tasks.indexOf(taskInfo)
     tasks.splice(currentTask, 1)      
     renderElements(tasks)
@@ -68,14 +68,14 @@ function renderElements(taskList) {
 renderElements(tasks)
 
 function renderNewElement(){
-  const AddTaskButton = document.getElementById('btnSubmit')
-  const taskTitle = document.getElementById('input_title')
-  const taskPriority = document.getElementById('input_priority')
+  const AddTaskButton = document.getElementById("btnSubmit")
+  const taskTitle = document.getElementById("input_title")
+  const taskPriority = document.getElementById("input_priority")
 
-  AddTaskButton.addEventListener('click',function(e){
+  AddTaskButton.addEventListener("click",function(e){
     e.preventDefault()
     
-    if(taskTitle.value != ''){
+    if(taskTitle.value != ""){
       let newTaskObj = {}
       newTaskObj.titulo = taskTitle.value
       newTaskObj.tipo = taskPriority.value
