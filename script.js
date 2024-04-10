@@ -59,6 +59,11 @@ function renderElements(taskList) {
     let card = createCard(currentTask)
     htmlList.appendChild(card)
   }
+  if (taskList.length === 0){
+    const emptyListItem = document.createElement("li")
+    emptyListItem.innerText = "Parece que você não tem tarefas a fazer, ou pelo menos ainda não adicionou nenhuma..."
+    htmlList.appendChild(emptyListItem)
+  }
 }
 renderElements(tasks)
 
